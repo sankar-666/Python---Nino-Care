@@ -1,0 +1,34 @@
+{% include 'adminheader.html' %}
+
+<center>
+    <div class="img-div"></div>
+    <h3>View Parents</h3>
+    <form action="" method="post">
+    <table class="table table-striped tbl-new bg-light shadow" style="max-width: 1200px;">
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Place</th>
+            <th>Dob</th>
+            <th>Housename</th>
+           
+
+        </tr>
+        {% for row in data['res'] %}
+        <tr>
+            <td>{{ row['fname'] }}{{ row['lname'] }}</td>
+            <td>{{ row['phone'] }}</td>
+            <td>{{ row['email'] }}</td>
+            <td>{{ row['place'] }}</td>
+            <td>{{ row['dob'] }}</td>
+            <td>{{ row['housename'] }}</td>
+           
+
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+</center>
+
+{% include 'footer.html' %}

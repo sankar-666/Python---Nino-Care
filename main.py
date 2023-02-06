@@ -19,4 +19,4 @@ app.register_blueprint(public)
 def not_found(e):
   return render_template("404.html")
 
-app.run(debug=True,port=5012,host="0.0.0.0")
+app.run(debug=True,port=5022,host="0.0.0.0")
