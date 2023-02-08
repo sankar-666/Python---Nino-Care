@@ -1,0 +1,111 @@
+{% include 'adminheader.html' %}
+<center>
+    <div class="img-div">
+    
+    
+    <h1 class="hd">Manage Age Group</h1>
+    <form action="" method="post" class="form">
+        <table class="table form-group">
+            <tr>
+                <th>Group Name</th>
+                <td><input type="text" class="form-control" required name="gname" id=""></td>
+            </tr>
+           
+            <tr>
+                <th>Minimum Age </th>
+                <td><input type="number" class="form-control" required name="mage" id=""></td>
+            </tr>
+           
+            <tr>
+                <th>Maximum Age</th>
+                <td><input type="number" class="form-control" required name="maxage" id=""></td>
+            </tr>
+           
+            <tr>
+               
+                <td colspan="2" align="center"><input type="submit" class="btn btn-success" name="btn" id=""></td>
+            </tr>
+            </table>
+            </form>
+
+
+</div>
+    <br><br>
+    {% if data['count'] >= 1 %}
+    <h5>View Available Age Group</h5>
+    <table class="table table-striped tbl-new" style="width: 1000px;">
+        <tr>
+            <th>index</th>
+            <th>Name</th>
+            <th>Minimum Age</th>
+            <th>maximum Age</th>
+            
+        </tr>
+        {% for row in data['res'] %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ row['group_name'] }}</td>
+            <td>{{ row['min_age'] }}</td>
+            <td>{{ row['max_age'] }}</td>
+           
+            <td><a class="btn btn-danger" onclick="return confirm('Are You Sure!')" href="?action=delete&gid={{ row['group_id'] }}">Delete</a></td>
+                   </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</center>
+
+<script src="
+https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+<script>
+    $(function() {
+        $("input[name='place']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        $("input[name='lname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        // $("input[name='dob']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^0-9/]/g, ''));
+
+        // });
+        
+        $("input[name='phone']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+        $("input[name='pin']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+        $("input[name='email']").on('input', function(e) {
+              var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{1,}/.test(this.value);
+                if(!re) {
+                    $('#eerror').show();
+                } else {
+                    $('#eerror').hide();
+                }
+
+        });
+        $("input[name='address']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z0-9()/. ]/g, ''));
+
+        });
+        $("input[name='place']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+            
+        $("input[name='pwd']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9A-Za-z@/. ]/g, ''));
+            
+        });
+    });
+
+
+</script>
+
+{% include 'footer.html' %}

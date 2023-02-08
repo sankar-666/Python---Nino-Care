@@ -1,0 +1,42 @@
+{% include 'ashaworkerheader.html' %}
+
+
+<div>
+    <center>
+
+        <form action="" method="post">
+            <table>
+                <tr>
+                    <th>Select vaccination</th>
+                    <td>
+                        <select name="vid" class="form-control" id="">
+                            {% for row in data['vaccine'] %}
+                            <option value="{{ row['vaccination_id'] }}">{{ row['name'] }}</option>
+                            {% endfor %}
+                            
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" class="form-control" name="btn" id=""></td>
+                </tr>
+            </table>
+        </form>
+
+        <br>
+        <table>
+            {% if row in data['res'] %}
+            <tr>
+                <td>vaccination At {{ row['time'] }} on {{ row['date'] }} is {{ row['status'] }}</td>
+                {% if row['status'] == 'pending' %}
+                <td><a href="?action=complete&rid={{ row['request_id'] }}">Complete the Vaccine</a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+
+    </center>
+</div>
+
+
+{% include 'footer.html' %}

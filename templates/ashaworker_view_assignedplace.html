@@ -1,0 +1,13 @@
+{% include 'ashaworkerheader.html' %}
+
+
+<div>
+    <center>
+            {% for row in data['res'] %}
+        <h1>You Assigned Place is <span style="color: rgb(209, 0, 0);"> " {{ row['place'] }} "</span></h1>
+            {% endfor %}
+    </center>
+</div>
+
+
+{% include 'footer.html' %}

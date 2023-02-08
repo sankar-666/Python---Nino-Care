@@ -1,0 +1,54 @@
+{% include 'adminheader.html' %}
+
+<center>
+    <div class="img-div"></div>
+
+    {% if data['showForm'] %}
+
+    <form action="" method="post">
+        <table>
+            <tr>
+                <th>Precuations</th>
+                <td><input type="text" required name="prec" class="form-control" id=""></td>
+            </tr>
+            <tr>
+                <th><input type="submit" name="btn" class="btn btn-success" id=""></th>
+            </tr>
+        </table>
+    </form>
+
+
+    {% else %}
+    <h3>View Babies</h3>
+    <form action="" method="post">
+    <table class="table table-striped tbl-new bg-light shadow" style="max-width: 1200px;">
+        <tr>
+            <th>Parent</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Baby</th>
+            <th>Relation</th>
+            <th>Gender</th>
+           
+
+        </tr>
+        {% for row in data['res'] %}
+        <tr>
+            <td>{{ row['fparennt'] }}{{ row['lparennt'] }}</td>
+            <td>{{ row['phone'] }}</td>
+            <td>{{ row['email'] }}</td>
+            <td>{{ row['fbaby'] }}{{ row['lbaby'] }}</td>
+            <td>{{ row['relation'] }}</td>
+            <td>{{ row['gender'] }}</td>
+            <td><a href="?action=send&bid={{ row['babie_id'] }}">Send Precuations</a></td>
+            <td><a href="ashaworker_add_vaccination?bid={{ row['babie_id'] }}">vaccine</a></td>
+           
+
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+    {% endif %}
+</center>
+
+{% include 'footer.html' %}

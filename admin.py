@@ -279,3 +279,40 @@ def admin_manage_babyvideos():
         flash("Deleted Successfully")
         return redirect(url_for("admin.admin_manage_babyvideos"))
     return render_template('admin_manage_babyvideos.html',data=data) 
+
+
+
+@admin.route('/admin_manage_agegroup',methods=['get','post'])
+def admin_manage_agegroup():
+    data={}
+    if 'btn' in request.form:
+        gname=request.form['gname']
+        mage=request.form['mage']
+        maxage=request.form['maxage']
+        
+    
+        q="insert into agegroup values (null,'%s','%s','%s')"%(gname,mage,maxage)
+        insert(q)
+        flash("Successfully Added")
+        return redirect(url_for("admin.admin_manage_agegroup"))
+
+    data={}
+    q="select * from agegroup"
+    data['res']=select(q)
+    data['count']=len(select(q))
+
+    if 'action' in request.args:
+        action=request.args['action']
+        gid=request.args['gid'] 
+    else:
+        action=None
+
+    
+    
+    if action == "delete":
+        q="delete from agegroup where group_id='%s' "%(gid)
+        delete(q)
+        flash("Deleted Successfully")
+        return redirect(url_for("admin.admin_manage_agegroup"))
+    return render_template('admin_manage_agegroup.html',data=data) 
+

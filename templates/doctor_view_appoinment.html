@@ -1,0 +1,36 @@
+{% include 'doctorheader.html' %}
+
+<center>
+    <div class="img-div"></div>
+    <h3>View Parents</h3>
+    <form action="" method="post">
+    <table class="table table-striped tbl-new bg-light shadow" style="max-width: 1200px;">
+        <tr>
+            <th>Baby Name</th>
+            <th>Dob</th>
+            <th>Gender</th>
+            <th>Date</th>
+            <th>Time</th>           
+
+        </tr>
+        {% for row in data['res'] %}
+        <tr>
+            <td>{{ row['fname'] }}{{ row['lname'] }}</td>
+            <td>{{ row['dob'] }}</td>
+            <td>{{ row['gender'] }}</td>
+            <td>{{ row['date'] }}</td>
+            <td>{{ row['time'] }}</td>
+            {% if row['status'] == "pending" %}
+            <td><a href="?action=approve&aid={{ row['appoinment_id'] }}" onclick="return confirm('Are you Sure!')">Approve</a></td>
+            <td><a href="?action=reject&aid={{ row['appoinment_id'] }}" onclick="return confirm('Are you Sure!')">Reject</a></td>
+            {% else %}
+            <td>{{ row['status'] }}</td>
+            {% endif %}
+
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+</center>
+
+{% include 'footer.html' %}
