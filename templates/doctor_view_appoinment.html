@@ -21,8 +21,8 @@
             <td>{{ row['date'] }}</td>
             <td>{{ row['time'] }}</td>
             {% if row['status'] == "pending" %}
-            <td><a href="?action=approve&aid={{ row['appoinment_id'] }}" onclick="return confirm('Are you Sure!')">Approve</a></td>
-            <td><a href="?action=reject&aid={{ row['appoinment_id'] }}" onclick="return confirm('Are you Sure!')">Reject</a></td>
+            <td><a href="?action=approve&aid={{ row['appointment_id'] }}" onclick="return confirm('Are you Sure!')">Approve</a></td>
+            <td><a href="?action=reject&aid={{ row['appointment_id'] }}" onclick="return confirm('Are you Sure!')">Reject</a></td>
             {% else %}
             <td>{{ row['status'] }}</td>
             {% endif %}

@@ -17,13 +17,13 @@
         </tr>
         {% for row in data['res'] %}
         <tr>
-            <td>{{ row['fparennt'] }}{{ row['lparennt'] }}</td>
+            <td>{{ row['fparent'] }}{{ row['lparennt'] }}</td>
             <td>{{ row['phone'] }}</td>
             <td>{{ row['email'] }}</td>
             <td>{{ row['fbaby'] }}{{ row['lbaby'] }}</td>
             <td>{{ row['relation'] }}</td>
             <td>{{ row['gender'] }}</td>
-            <td><a href="admin_view_vaccination?bid={{ row['baby_id'] }}">View Vaccination</a></td>
+            <td><a href="admin_view_vaccination?bid={{ row['babie_id'] }}">View Vaccination</a></td>
            
 
         </tr>

@@ -1,11 +1,11 @@
-{% include 'adminheader.html' %}
+{% include 'ashaworkerheader.html' %}
 
 <center>
     <div class="img-div"></div>
 
     {% if data['showForm'] %}
 
-    <form action="" method="post">
+    <form action="" method="post" style="margin: 20px auto;">
         <table>
             <tr>
                 <th>Precuations</th>
@@ -40,7 +40,7 @@
             <td>{{ row['fbaby'] }}{{ row['lbaby'] }}</td>
             <td>{{ row['relation'] }}</td>
             <td>{{ row['gender'] }}</td>
-            <td><a href="?action=send&bid={{ row['babie_id'] }}">Send Precuations</a></td>
+            <td><a href="?action=sendz&bid={{ row['babie_id'] }}">Send Precuations</a></td>
             <td><a href="ashaworker_add_vaccination?bid={{ row['babie_id'] }}">vaccine</a></td>
            
 

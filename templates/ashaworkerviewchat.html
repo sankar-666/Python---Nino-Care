@@ -1,0 +1,25 @@
+{% include 'ashaworkerheader.html' %}
+<center>
+<div class="w">
+<table>
+    <tr>
+        <th colspan="2" align="center">Latest Messages</th>
+    </tr>
+    {% for row in data['res'] %}
+    <tr>
+        <td>{{row['fname']}} {{row['lname']}}</td>
+        <td><a href="ashaworkerchat?did={{row['login_id']}}">Click to view</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<style>
+    .w{
+        margin-top: 150px;
+        margin-bottom: 100px;
+    }
+    table{
+        width: 500px;
+    }
+</style>
+{% include 'footer.html' %}

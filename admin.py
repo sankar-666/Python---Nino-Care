@@ -11,7 +11,7 @@ def adminhome():
 @admin.route('/admin_view_parents')
 def admin_view_parents():
     data={}
-    q="select * from parent"
+    q="select * from parent inner join place using (place_id)"
     data['res']=select(q)
     return render_template('admin_view_parents.html',data=data)
 
@@ -28,7 +28,7 @@ def admin_view_babies():
 def admin_view_vaccination():
     data={}
     bid=request.args['bid']
-    q="SELECT * FROM `vaccinations` INNER JOIN `request` USING (vaccination_id) where baby_id='%s'"%(bid)
+    q="SELECT * FROM `vaccinations` INNER JOIN `request` USING (vaccination_id) where babie_id='%s'"%(bid)
     data['res']=select(q)
     return render_template('admin_view_vaccination.html',data=data)
 
